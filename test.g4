@@ -1,3 +1,9 @@
 grammar test;
-prule: 'hello ' CHAR+;
-CHAR : 'a'..'z' |  ' ' | 'A'..'Z';
+prule: OPERATION;
+
+OPERATION: WHITESPACE* NUMBER  WHITESPACE* '+' WHITESPACE* NUMBER;
+WHITESPACE : ' ' -> skip;
+NUMBER : [0-9]+;
+CHAR : [a-z]|[A-z]|'_';
+WORD : CHAR+;
+
