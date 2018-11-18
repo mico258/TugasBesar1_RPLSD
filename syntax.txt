@@ -1,4 +1,4 @@
-configuration -> "configuration" "capacity=NUMBER" "facilities=WORDS"
-requirement-> "requirement" "words"
-availability-> "availibility" "0|1"
-constraint-> "constraint" ""NUMBER:NUMBER" "NUMBER:NUMBER"
+configuration -> "configuration" "capacity=NUMBER" "facilities=WORDS" ";"
+requirement-> "requirement" "words" ";"
+availability-> "availibility" "0|1" ";"
+constraint-> "constraint" ""NUMBER:NUMBER" "NUMBER:NUMBER" ";"

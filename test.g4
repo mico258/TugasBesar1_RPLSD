@@ -1,7 +1,7 @@
 grammar test;
-prule: OPERATION;
+prule: MAIN;
 
-OPERATION: WHITESPACE* NUMBER  WHITESPACE* '+' WHITESPACE* NUMBER;
+
 WHITESPACE : ' ' -> skip;
 NUMBER : [0-9]+;
 CHAR : [a-z]|[A-z]|'_';
