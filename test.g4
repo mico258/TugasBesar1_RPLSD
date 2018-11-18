@@ -1,9 +1,21 @@
 grammar test;
-prule: MAIN;
+prule: MAIN+ WHITESPACE* '%';
 
 
 WHITESPACE : ' ' -> skip;
 NUMBER : [0-9]+;
 CHAR : [a-z]|[A-z]|'_';
 WORD : CHAR+;
+SENTENCE : (WORD WHITESPACE*)+;
+BOOLEAN : [0-1];
+NEWLINE : ('\r'? '\n' | '\r')+ ;
+
+MAIN : COMMAND WHITESPACE* ';' NEWLINE*;
+COMMAND : REQUIREMENT | AVAILIBILITY;
+REQUIREMENT : WHITESPACE* 'requirement' WHITESPACE+  SENTENCE;
+AVAILIBILITY: WHITESPACE* 'availibility' WHITESPACE+ BOOLEAN;
+
+
+
+
 
