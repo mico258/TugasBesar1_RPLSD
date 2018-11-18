@@ -1,26 +1,34 @@
 grammar schedule;
 schedule: 'begin' NEWLINE* kelas*  NEWLINE* 'end';
 
-kelas: matkul NEWLINE* fitur* WHITESPACE* ('%') NEWLINE*;
+kelas: WHITESPACE* BRACKET_OPEN NEWLINE* matkul NEWLINE* fitur* WHITESPACE* BRACKET_CLOSE WHITESPACE* NEWLINE*;
 
-matkul : WORD ';';
-fitur     : (configuration|requirement|availibility) WHITESPACE* NEWLINE*;
+matkul : WORD TITIK_KOMA;
+fitur     : WHITESPACE* (configuration|requirement|availibility) WHITESPACE* NEWLINE*;
 configuration : CONFIGURATION;
 requirement: REQUIREMENT;
 availibility: AVAILIBILITY;
 
-CONFIGURATION : WHITESPACE*  ('configuration') WHITESPACE+ NUMBER+ WHITESPACE* '|' WHITESPACE* SENTENCE ';';
-REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  SENTENCE ';';
-AVAILIBILITY: WHITESPACE* ('availibility') WHITESPACE+ BOOLEAN ';';
+CONFIGURATION : WHITESPACE*  ('configuration') WHITESPACE+ ('capacity=')NUMBER+ WHITESPACE* VERTICAL
+                                WHITESPACE* ('facility=') (SENTENCE|NUMBER)* TITIK_KOMA;
+REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  SENTENCE TITIK_KOMA;
+AVAILIBILITY: WHITESPACE* ('availibility') WHITESPACE+ BOOLEAN TITIK_KOMA;
 
-
+// SKIP
 WHITESPACE : ' ' -> skip;
+NEWLINE : ('\r'? '\n' | '\r')+ -> skip ;
+
+TITIK_KOMA : (';');
+BRACKET_OPEN : ('{');
+BRACKET_CLOSE : ('}');
+VERTICAL : ('|');
+
 NUMBER : [0-9]+;
 CHAR : [a-z]|[A-z]|'_';
 WORD : CHAR+;
 SENTENCE : (WORD WHITESPACE*)+;
 BOOLEAN : [0-1];
-NEWLINE : ('\r'? '\n' | '\r')+ ;
+
 
 
 
