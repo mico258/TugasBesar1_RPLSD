@@ -1,6 +1,5 @@
-// Generated from /Users/mico/RPLSD/src/main/antlr4/com/rplsd/scheduling/schedule.g4 by ANTLR 4.7
+// Generated from .\src\main\antlr4\com\rplsd\scheduling\schedule.g4 by ANTLR 4.7
 package main.antlr4.com.rplsd.scheduling;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -100,13 +99,13 @@ public class scheduleBaseListener implements scheduleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstrain(scheduleParser.ConstrainContext ctx) { }
+	@Override public void enterConstraint(scheduleParser.ConstraintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConstrain(scheduleParser.ConstrainContext ctx) { }
+	@Override public void exitConstraint(scheduleParser.ConstraintContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

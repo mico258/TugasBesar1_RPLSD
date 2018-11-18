@@ -1,4 +1,4 @@
-// Generated from /Users/mico/RPLSD/src/main/antlr4/com/rplsd/scheduling/schedule.g4 by ANTLR 4.7
+// Generated from .\src\main\antlr4\com\rplsd\scheduling\schedule.g4 by ANTLR 4.7
 package main.antlr4.com.rplsd.scheduling;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -78,13 +78,13 @@ public interface scheduleListener extends ParseTreeListener {
 	 */
 	void exitAvailibility(scheduleParser.AvailibilityContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link scheduleParser#constrain}.
+	 * Enter a parse tree produced by {@link scheduleParser#constraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterConstrain(scheduleParser.ConstrainContext ctx);
+	void enterConstraint(scheduleParser.ConstraintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link scheduleParser#constrain}.
+	 * Exit a parse tree produced by {@link scheduleParser#constraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitConstrain(scheduleParser.ConstrainContext ctx);
+	void exitConstraint(scheduleParser.ConstraintContext ctx);
 }

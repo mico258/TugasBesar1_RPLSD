@@ -1,16 +1,20 @@
 grammar schedule;
+
+// top level parser 
 schedule: 'begin' NEWLINE* kelas*  NEWLINE* 'end';
 
+// medium level parser
 kelas: WHITESPACE* BRACKET_OPEN NEWLINE* matkul NEWLINE* fitur* WHITESPACE* BRACKET_CLOSE WHITESPACE* NEWLINE*;
-
 matkul : WORD TITIK_KOMA;
 fitur     : WHITESPACE* (configuration|requirement|availibility|constraint) WHITESPACE* NEWLINE*;
 
+// atomic parser
 configuration : CONFIGURATION;
 requirement: REQUIREMENT;
 availibility: AVAILIBILITY;
 constraint: CONSTRAINT;
 
+// lexer for feature
 CONFIGURATION : WHITESPACE*  ('configuration') WHITESPACE+ ('capacity=')NUMBER+ WHITESPACE* VERTICAL
                                 WHITESPACE* ('facility=') (SENTENCE|NUMBER)* TITIK_KOMA;
 REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  SENTENCE TITIK_KOMA;
@@ -21,6 +25,7 @@ CONSTRAINT : WHITESPACE* ('constraint') WHITESPACE+ NUMBER ':' NUMBER ' ' NUMBER
 WHITESPACE : ' ' -> skip;
 NEWLINE : ('\r'? '\n' | '\r')+ -> skip ;
 
+// fundamentals
 TITIK_KOMA : (';');
 BRACKET_OPEN : ('{');
 BRACKET_CLOSE : ('}');
