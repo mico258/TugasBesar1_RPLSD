@@ -1,17 +1,23 @@
-grammar test_mico;
-prule: DATETIME*;
+grammar test;
+prule: expr+  WHITESPACE* '%';
 
-OPERATION: WHITESPACE* NUMBER  WHITESPACE* '*' WHITESPACE* NUMBER;
+
 WHITESPACE : ' ' -> skip;
 fragment NUMBER : [0-9]+;
-CHAR : [a-z]|[A-z]|'_';
-fragment WORD : CHAR+;
-DIGIT: WHITESPACE* [0-9] WHITESPACE*;
-TWODIGIT : DIGIT DIGIT;
-DAY : WORD;
-HOUR : TWODIGIT;
-MINUTE : TWODIGIT;
-SECOND : TWODIGIT;
+fragment CHAR : [a-z]|[A-z]|'_';
+WORD : CHAR+;
+SENTENCE : (WORD WHITESPACE*)+;
+fragment BOOLEAN : [0-1];
+NEWLINE : ('\r'? '\n' | '\r')+ ;
 
-TIME :  HOUR ':' MINUTE ':' SECOND ;
-DATETIME : DAY ' ' TIME ';\n';
+MAIN : COMMAND WHITESPACE* ';' NEWLINE*;
+COMMAND : REQUIREMENT | AVAILIBILITY | CONSTRAINT;
+REQUIREMENT : WHITESPACE* 'requirement' WHITESPACE+  SENTENCE;
+AVAILIBILITY: WHITESPACE* 'availibility' WHITESPACE+ BOOLEAN;
+CONSTRAINT : WHITESPACE* 'constraint' WHITESPACE+ NUMBER ':' NUMBER ' ' NUMBER ':' NUMBER;
+
+expr : expr ('AND' | 'OR' | 'NOT') expr
+ | expr expr
+ | MAIN+
+ | '(' expr ')'
+ ;

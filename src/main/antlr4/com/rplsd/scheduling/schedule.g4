@@ -4,15 +4,18 @@ schedule: 'begin' NEWLINE* kelas*  NEWLINE* 'end';
 kelas: WHITESPACE* BRACKET_OPEN NEWLINE* matkul NEWLINE* fitur* WHITESPACE* BRACKET_CLOSE WHITESPACE* NEWLINE*;
 
 matkul : WORD TITIK_KOMA;
-fitur     : WHITESPACE* (configuration|requirement|availibility) WHITESPACE* NEWLINE*;
+fitur     : WHITESPACE* (configuration|requirement|availibility|constraint) WHITESPACE* NEWLINE*;
+
 configuration : CONFIGURATION;
 requirement: REQUIREMENT;
 availibility: AVAILIBILITY;
+constraint: CONSTRAINT;
 
 CONFIGURATION : WHITESPACE*  ('configuration') WHITESPACE+ ('capacity=')NUMBER+ WHITESPACE* VERTICAL
                                 WHITESPACE* ('facility=') (SENTENCE|NUMBER)* TITIK_KOMA;
 REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  SENTENCE TITIK_KOMA;
 AVAILIBILITY: WHITESPACE* ('availibility') WHITESPACE+ BOOLEAN TITIK_KOMA;
+CONSTRAINT : WHITESPACE* ('constraint') WHITESPACE+ NUMBER ':' NUMBER ' ' NUMBER ':' NUMBER TITIK_KOMA;
 
 // SKIP
 WHITESPACE : ' ' -> skip;
