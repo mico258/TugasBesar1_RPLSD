@@ -15,8 +15,8 @@ public class App
         CommonTokenStream commonTokenStream = new CommonTokenStream(scheduleLexer);
         scheduleParser scheduleParser = new scheduleParser(commonTokenStream);
 
-        scheduleParser.FiturContext fileContext = scheduleParser.getContext();
-        scheduleVisitor visitor = new scheduleVisitor(System.out);
-        visitor.visit(scheduleLexer);
+//        scheduleParser.FiturContext fileContext = scheduleParser.getContext();
+//        scheduleVisitor visitor = new scheduleVisitor(System.out);
+//        visitor.visit(scheduleLexer);
     }
 }
