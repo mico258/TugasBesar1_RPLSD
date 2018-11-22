@@ -2,7 +2,6 @@ package com.rplsd.scheduling.kelas;
 
 import com.rplsd.scheduling.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Kelas {
     public String name;
