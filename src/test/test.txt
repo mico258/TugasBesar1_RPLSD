@@ -1,6 +1,31 @@
 begin
 {
-Pengembangan Berbasis Domain;
-configuration 100 punya proyektor;
+ kimia ;
+ requirement 1 ;
+ capacity 50 ;
+ { 1 1 2; 2 3 4; 4 5 6;};
+}
+{
+ PAT ;
+ requirement 1 ;
+ capacity 100 ;
+ { 1 5 9;};
+}
+end
+begin
+{
+7602 50 1 ;
+}
+{
+7603 100 1 ;
+}
+{
+7609 100 1 ;
+}
+{
+7605 100 1 ;
+}
+{
+7604 100 1 ;
 }
 end

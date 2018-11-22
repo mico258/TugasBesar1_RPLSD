@@ -40,7 +40,7 @@
                     <source>1.8</source>
                     <target>1.8</target>
                     <fork>true</fork>
-                    <executable>C:\Program Files\Java\jdk1.8.0_161\bin\javac</executable>
+                    <executable>C:\Program Files\Java\jdk1.8.0_191\bin\javac</executable>
                 </configuration>
             </plugin>
             <!-- Plugin to compile the g4 files ahead of the java files
@@ -53,7 +53,7 @@
             <plugin>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-maven-plugin</artifactId>
-                <version>4.6</version>
+                <version>4.7.1</version>
                 <executions>
                     <execution>
                         <goals>
