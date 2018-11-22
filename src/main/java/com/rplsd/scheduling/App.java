@@ -49,8 +49,6 @@ public class App
                 System.out.println(r.toString());
             }
 
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

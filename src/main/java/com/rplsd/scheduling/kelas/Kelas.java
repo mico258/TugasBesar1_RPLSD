@@ -2,6 +2,7 @@ package com.rplsd.scheduling.kelas;
 
 import com.rplsd.scheduling.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Kelas {
     public String name;
@@ -17,9 +18,14 @@ public class Kelas {
 
         String c = kc.capacity(0).CAPACITY().toString();
         capacity = Integer.parseInt(c.trim().split("\\s+")[1]);
+
+        availability = new ArrayList<>();
+        for(scheduleParser.JadwalContext jc : kc.availability(0).jadwal()) {
+            availability.add(new Jadwal(jc));
+        }
     }
 
     public String toString() {
-        return name + " " + requirement.toString() + " " + capacity.toString();
+        return name + " " + requirement.toString() + " " + capacity.toString() + " " + availability.toString();
     }
 }
