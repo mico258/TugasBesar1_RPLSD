@@ -1,35 +1,37 @@
 grammar schedule;
 
 // top level parser 
-schedule: 'begin' NEWLINE* kelas*  NEWLINE* 'end';
+schedule: 'begin' NEWLINE* kelas*  NEWLINE* 'end' NEWLINE* 'begin' NEWLINE* ruangkelas*  NEWLINE* 'end';
 
-// medium level parser
+// medium level parser kelas
 kelas: WHITESPACE* BRACKET_OPEN NEWLINE* matkul NEWLINE* fitur* WHITESPACE* BRACKET_CLOSE WHITESPACE* NEWLINE*;
-matkul : WORD TITIK_KOMA;
-fitur     : WHITESPACE* (configuration|requirement|availibility|constraint) WHITESPACE* NEWLINE*;
+matkul : SENTENCE TITIK_KOMA;
+fitur     : WHITESPACE* (requirement|availability|capacity) WHITESPACE* NEWLINE*;
 
-// atomic parser
-configuration : CONFIGURATION;
+ruangkelas: WHITESPACE* BRACKET_OPEN NEWLINE* ruangan WHITESPACE* BRACKET_CLOSE WHITESPACE* NEWLINE*;
+ruangan: WHITESPACE* NUMBER WHITESPACE* NUMBER WHITESPACE* NUMBER WHITESPACE* TITIK_KOMA;
+
+// atomic parser for kelas
+capacity: CAPACITY;
 requirement: REQUIREMENT;
-availibility: AVAILIBILITY;
-constraint: CONSTRAINT;
+
+availability: BRACKET_OPEN WHITESPACE* jadwal* WHITESPACE* BRACKET_CLOSE TITIK_KOMA;
+jadwal: NUMBER WHITESPACE* NUMBER WHITESPACE* NUMBER TITIK_KOMA;
+
 
 // lexer for feature
-CONFIGURATION : WHITESPACE*  ('configuration') WHITESPACE+ ('capacity=')NUMBER+ WHITESPACE* VERTICAL
-                                WHITESPACE* ('facility=') (SENTENCE|NUMBER)* TITIK_KOMA;
-REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  SENTENCE TITIK_KOMA;
-AVAILIBILITY: WHITESPACE* ('availibility') WHITESPACE+ BOOLEAN TITIK_KOMA;
-CONSTRAINT : WHITESPACE* ('constraint') WHITESPACE+ NUMBER ':' NUMBER ' ' NUMBER ':' NUMBER TITIK_KOMA;
-
+RUANGAN : WHITESPACE*  ('ruangan') (SENTENCE|NUMBER) WHITESPACE+ NUMBER WHITESPACE+ NUMBER WHITESPACE+
+                   TITIK_KOMA;
+REQUIREMENT : WHITESPACE* ('requirement') WHITESPACE+  NUMBER WHITESPACE+ TITIK_KOMA;
+CAPACITY : WHITESPACE* ('capacity') WHITESPACE+  NUMBER WHITESPACE+ TITIK_KOMA;
 // SKIP
 WHITESPACE : ' ' -> skip;
 NEWLINE : ('\r'? '\n' | '\r')+ -> skip ;
 
 // fundamentals
-TITIK_KOMA : (';');
+TITIK_KOMA : ';';
 BRACKET_OPEN : ('{');
 BRACKET_CLOSE : ('}');
-VERTICAL : ('|');
 
 NUMBER : [0-9]+;
 CHAR : [a-z]|[A-z]|'_';

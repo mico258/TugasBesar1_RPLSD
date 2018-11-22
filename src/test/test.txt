@@ -1,0 +1,6 @@
+begin
+{
+Pengembangan Berbasis Domain;
+configuration 100 punya proyektor;
+}
+end
