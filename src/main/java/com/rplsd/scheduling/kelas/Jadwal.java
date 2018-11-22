@@ -1,5 +1,6 @@
 package com.rplsd.scheduling.kelas;
 import com.rplsd.scheduling.*;
+import com.rplsd.scheduling.ruangan.Ruangan;
 
 public class Jadwal {
     public Integer day;

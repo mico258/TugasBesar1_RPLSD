@@ -49,6 +49,11 @@ public class App
                 System.out.println(r.toString());
             }
 
+            Scheduler scheduler = new Scheduler();
+//            System.out.println(scheduler.getFreeRoom(100, 1, kelass.get(0).availability.get(0),
+//                    ruangans));
+            scheduler.Schedule(kelass, ruangans);
+            scheduler.PrintSchedule();
         } catch (IOException e) {
             e.printStackTrace();
         }

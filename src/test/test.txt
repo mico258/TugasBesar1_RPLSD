@@ -3,13 +3,19 @@ begin
  kimia ;
  requirement 1 ;
  capacity 50 ;
- { 1 1 2; 2 3 4; 4 5 6;};
+ { 1 1 2;};
 }
 {
  PAT ;
  requirement 1 ;
  capacity 100 ;
- { 1 5 9;};
+ { 1 1 2;};
+}
+{
+ RPLSD ;
+ requirement 1 ;
+ capacity 100 ;
+ { 1 1 2;};
 }
 end
 begin
@@ -18,14 +24,5 @@ begin
 }
 {
 7603 100 1 ;
-}
-{
-7609 100 1 ;
-}
-{
-7605 100 1 ;
-}
-{
-7604 100 1 ;
 }
 end
