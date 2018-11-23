@@ -35,9 +35,10 @@ public class App
                 kelass.add(new Kelas(kc));
             }
 
-            for (Kelas k : kelass) {
-                System.out.println(k.toString());
-            }
+            // Print kelas yang terbentuk
+//            for (Kelas k : kelass) {
+//                System.out.println(k.toString());
+//            }
 
             // parse ruangan
             ArrayList<Ruangan> ruangans = new ArrayList<>();
@@ -45,9 +46,10 @@ public class App
                 ruangans.add(new Ruangan(rkc.ruangan()));
             }
 
-            for (Ruangan r: ruangans) {
-                System.out.println(r.toString());
-            }
+            // Print ruangan yang terbentuk
+//            for (Ruangan r: ruangans) {
+//                System.out.println(r.toString());
+//            }
 
             Scheduler scheduler = new Scheduler();
 //            System.out.println(scheduler.getFreeRoom(100, 1, kelass.get(0).availability.get(0),
